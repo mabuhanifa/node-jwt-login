@@ -6,6 +6,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
+app.post("/api/register", (req, res) => {});
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
 });
