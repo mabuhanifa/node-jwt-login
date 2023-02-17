@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(cors());
 const mongoose = require("mongoose");
 const User = require("./model/userModel");
+
 mongoose.set("strictQuery", false);
 
 mongoose
@@ -43,6 +44,11 @@ app.post("/api/login", async (req, res) => {
   } else {
     res.json({ status: "error", user: "false" });
   }
+});
+
+app.get("/api/users", (req, res) => {
+  const user = User.find({});
+  console.log(user);
 });
 
 app.listen(port, () => {
