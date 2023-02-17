@@ -18,17 +18,16 @@ mongoose
 
 app.post("/api/register", async (req, res) => {
   console.log(req.body);
-
   try {
     const { name, email, password } = req.body;
-    const user = await User.create({
+    await User.create({
       name: name,
       email: email,
       password: password,
     });
-    res.send({ name });
+    res.json({ status: "success" });
   } catch (error) {
-    console.error(error);
+    res.json({ status: "error", error: error.message });
   }
 });
 
