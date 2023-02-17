@@ -31,6 +31,20 @@ app.post("/api/register", async (req, res) => {
   }
 });
 
+app.post("/api/login", async (req, res) => {
+  console.log(req.body);
+  const { email, password } = req.body;
+  const user = await User.findOne({
+    email: email,
+    password: password,
+  });
+  if (user) {
+    res.json({ status: "success" });
+  } else {
+    res.json({ status: "error", user: "false" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
 });
