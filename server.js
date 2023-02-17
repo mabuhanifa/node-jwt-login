@@ -48,10 +48,6 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-app.get("/api/users", (req, res) => {
-  const user = User.find({});
-  console.log(user);
-});
 
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
